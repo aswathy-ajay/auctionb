@@ -1,0 +1,77 @@
+machine Auction
+sees AuctionContext
+variables
+	seller
+	bidder
+	login
+	register
+invariants
+	@inv0: bidder ⊆ USER
+	@inv1: seller ⊆ USER
+	@inv2: bidder ∩ seller = ∅
+	@inv3: register ⊆ USER
+	@inv4: login ⊆ register
+events
+	event INITIALISATION
+	then
+		@act0: seller ≔ ∅
+		@act1: bidder ≔ ∅
+		@act2: login ≔ ∅
+		@act3: register ≔ ∅
+	end
+
+	event BidderLogin
+	any
+		s
+	where
+		@grd1: s ∉ login
+		@grd2: s ∈ register
+	then
+		@act1: login ≔ login ∪ {s}
+		@act2: bidder ≔ bidder ∪ {s}
+	end
+
+	event SellerLogin
+	any
+		s
+	where
+		@grd1: s ∉ login
+		@grd2: s ∈ register
+	then
+		@act1: login ≔ login ∪ {s}
+		@act2: seller ≔ seller ∪ {s}
+	end
+
+	event RegisterUser
+	any
+		s
+	where
+		@grd1: s ∉ register
+	then
+		@act1: register ≔ register ∪ {s}
+		//Hi im a comment, the push/pull worked if you see this!
+	end
+
+	event LogOutSeller
+	any
+		s
+	where
+		@grd1: s ∈ login
+		@grd2: s ∈ seller
+	then
+		@act1: seller ≔ seller ∖ {s}
+		@act2: login ≔ login ∖ {s}
+	end
+
+	event LogOutBidder
+	any
+		s
+	where
+		@grd1: s ∈ login
+		@grd2: s ∈ bidder
+	then
+		@act1: bidder ≔ bidder ∖ {s}
+		@act2: login ≔ login ∖ {s}
+	end
+
+end

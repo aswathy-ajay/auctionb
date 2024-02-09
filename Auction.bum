@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd;ac.soton.xeventb.xmachine.base" org.eventb.core.generated="false" version="5">
+    <org.eventb.core.seesContext name="_WMqNEO0cEe24a4VpXtAT-A" org.eventb.core.target="AuctionContext"/>
+    <org.eventb.core.variable name="_WMqNEe0cEe24a4VpXtAT-A" org.eventb.core.generated="false" org.eventb.core.identifier="seller"/>
+    <org.eventb.core.variable name="_WMqNEu0cEe24a4VpXtAT-A" org.eventb.core.generated="false" org.eventb.core.identifier="bidder"/>
+    <org.eventb.core.variable name="_WMqNE-0cEe24a4VpXtAT-A" org.eventb.core.generated="false" org.eventb.core.identifier="login"/>
+    <org.eventb.core.variable name="_WMqNFO0cEe24a4VpXtAT-A" org.eventb.core.generated="false" org.eventb.core.identifier="register"/>
+    <org.eventb.core.invariant name="_WMqNFe0cEe24a4VpXtAT-A" org.eventb.core.generated="false" org.eventb.core.label="inv0" org.eventb.core.predicate="bidder ⊆ USER"/>
+    <org.eventb.core.invariant name="_WMqNFu0cEe24a4VpXtAT-A" org.eventb.core.generated="false" org.eventb.core.label="inv1" org.eventb.core.predicate="seller ⊆ USER"/>
+    <org.eventb.core.invariant name="_WMqNF-0cEe24a4VpXtAT-A" org.eventb.core.generated="false" org.eventb.core.label="inv2" org.eventb.core.predicate="bidder ∩ seller = ∅"/>
+    <org.eventb.core.invariant name="_WMqNGO0cEe24a4VpXtAT-A" org.eventb.core.generated="false" org.eventb.core.label="inv3" org.eventb.core.predicate="register ⊆ USER"/>
+    <org.eventb.core.invariant name="_WMqNGe0cEe24a4VpXtAT-A" org.eventb.core.generated="false" org.eventb.core.label="inv4" org.eventb.core.predicate="login ⊆ register"/>
+    <org.eventb.core.event name="_WMvFkO0cEe24a4VpXtAT-A" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="_WMvFke0cEe24a4VpXtAT-A" org.eventb.core.assignment="seller ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="act0"/>
+        <org.eventb.core.action name="_WMwTsO0cEe24a4VpXtAT-A" org.eventb.core.assignment="bidder ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="_WMwTse0cEe24a4VpXtAT-A" org.eventb.core.assignment="login ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="_WMwTsu0cEe24a4VpXtAT-A" org.eventb.core.assignment="register ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="act3"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_WMwTs-0cEe24a4VpXtAT-A" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="BidderLogin">
+        <org.eventb.core.parameter name="_WMwTtO0cEe24a4VpXtAT-A" org.eventb.core.generated="false" org.eventb.core.identifier="s"/>
+        <org.eventb.core.guard name="_WMwTte0cEe24a4VpXtAT-A" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="s ∉ login"/>
+        <org.eventb.core.guard name="_WMz-EO0cEe24a4VpXtAT-A" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="s ∈ register"/>
+        <org.eventb.core.action name="_WMz-Ee0cEe24a4VpXtAT-A" org.eventb.core.assignment="login ≔ login ∪ {s}" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="_WMz-Eu0cEe24a4VpXtAT-A" org.eventb.core.assignment="bidder ≔ bidder ∪ {s}" org.eventb.core.generated="false" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_WMz-E-0cEe24a4VpXtAT-A" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="SellerLogin">
+        <org.eventb.core.parameter name="_WMz-FO0cEe24a4VpXtAT-A" org.eventb.core.generated="false" org.eventb.core.identifier="s"/>
+        <org.eventb.core.guard name="_WM2aUO0cEe24a4VpXtAT-A" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="s ∉ login"/>
+        <org.eventb.core.guard name="_WM2aUe0cEe24a4VpXtAT-A" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="s ∈ register"/>
+        <org.eventb.core.action name="_WM2aUu0cEe24a4VpXtAT-A" org.eventb.core.assignment="login ≔ login ∪ {s}" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="_WM2aU-0cEe24a4VpXtAT-A" org.eventb.core.assignment="seller ≔ seller ∪ {s}" org.eventb.core.generated="false" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_WM2aVO0cEe24a4VpXtAT-A" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="RegisterUser">
+        <org.eventb.core.parameter name="_WM2aVe0cEe24a4VpXtAT-A" org.eventb.core.generated="false" org.eventb.core.identifier="s"/>
+        <org.eventb.core.guard name="_WM5doO0cEe24a4VpXtAT-A" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="s ∉ register"/>
+        <org.eventb.core.action name="_WM5doe0cEe24a4VpXtAT-A" org.eventb.core.assignment="register ≔ register ∪ {s}" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_WM5dou0cEe24a4VpXtAT-A" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="LogOutSeller">
+        <org.eventb.core.parameter name="_WM5do-0cEe24a4VpXtAT-A" org.eventb.core.generated="false" org.eventb.core.identifier="s"/>
+        <org.eventb.core.guard name="_WM5dpO0cEe24a4VpXtAT-A" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="s ∈ login"/>
+        <org.eventb.core.guard name="_WM5dpe0cEe24a4VpXtAT-A" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="s ∈ seller"/>
+        <org.eventb.core.action name="_WM5dpu0cEe24a4VpXtAT-A" org.eventb.core.assignment="seller ≔ seller ∖ {s}" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="_WM5dp-0cEe24a4VpXtAT-A" org.eventb.core.assignment="login ≔ login ∖ {s}" org.eventb.core.generated="false" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_WM-WIO0cEe24a4VpXtAT-A" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="LogOutBidder">
+        <org.eventb.core.parameter name="_WM-WIe0cEe24a4VpXtAT-A" org.eventb.core.generated="false" org.eventb.core.identifier="s"/>
+        <org.eventb.core.guard name="_WM-WIu0cEe24a4VpXtAT-A" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="s ∈ login"/>
+        <org.eventb.core.guard name="_WM-WI-0cEe24a4VpXtAT-A" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="s ∈ bidder"/>
+        <org.eventb.core.action name="_WM-WJO0cEe24a4VpXtAT-A" org.eventb.core.assignment="bidder ≔ bidder ∖ {s}" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="_WM-WJe0cEe24a4VpXtAT-A" org.eventb.core.assignment="login ≔ login ∖ {s}" org.eventb.core.generated="false" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+</org.eventb.core.machineFile>
